@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<!--Estine van der Berg
+    26 May 2020 -->
+
+    <html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <title> Blog </title>
+        <!--stylesheet-->
+        <link rel="stylesheet" type = "text/css" href="stylesheet.css">
+        <!--icons-->
+        <script src="https://kit.fontawesome.com/7a3b930300.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- Nav Bar-->
+        <ul class="nav">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href = "index.html" rel = "import">ESTINEVDB</a>
+            </div>
+            <!-- End Logo-->
+            <li><a href = "#blogHeader">LATEST ARTICLE</a></li>
+            <li><a href = "#Contact">CONTACT</a></li>
+        </ul>
+        <!--End Nav Bar-->
+
+        <!--Banner-->
+        <div class ="banner">
+            <img class="banner-image" src = "banner2.jpg" alt = "Banner_Image">
+            <div class="banner-header2">
+                <h1>EstineVDB</h1>
+                <h2>BLOG</h2>
+            </div>
+        </div>
+        <!--End Banner-->
+
+        <!--Blog-->
+        <div class = "blog">
+            <!--Blog Header-->
+            <div id = "blogHeader" class = "blogHeader">
+                <h1>CONCURRENCY IN JAVA</h1>
+                <img class = "underlineImg" src = "Feathers.png" alt = "Image">
+                <p class = "bodyPar" >Concurrency is being able to do more than one thing at the same time, without affecting the final outcome. 
+                    In modern programming it is everywhere. Graphical User Interfaces (GUI) do work in the background that does not interrupt the user, 
+                    applications are processing on servers and websites are handeling a lot of different users. You are probably streaming audio right now while reading this blog. That is concurrency.
+                </p>
+                <p class = "bodyPar">Concurrent Software is software that does more than one thing at a time, it doesn't use multiple processors. In fact it's possible to run multiple tasks on a single processer. How is this done?
+                    The tasks don't execute at the same time, instead the system switches between the tasks. This happens so frequently that it seems like everything is happening at once. 
+                    So the multiple tasks are each making progress during the same time frame. Concurrency allows us to reduce the execution time of a data-intensive problems. 
+                </p>
+            </div>
+            <!--End of Blog Header-->
+
+            <!--Blog Body-->
+            <div class = "blogBody">
+                <!--First Section-->
+                <div class = "processThreads">
+                    <h1 class = "bodyheading">Process And Threads</h1>
+                    <p class = "bodyPar">Processes and Threads are the two basic units of concurrency.
+                        The difference between them is that a process is a program loaded into memory with all of the resources it needs to run and a thread is the unit of execution within a process. 
+                        A Process has a self-contained execution environment and generally has a complete, private set of basic run-time resources such as memory space. 
+                        Threads exist within a process, and every process has at least one thread. The thread sharing the process' resources makes for efficient communication.
+                    <br>
+                        A computer system normally has many active processes and threads. Each instance of a running program is a process. There can be multiple instances of a single program.
+                        This is true even in systems that only have a single execution core, and thus only have one thread actually executing at any given moment. 
+                        Each process runs independently from other processes because they have an independent memory address space.
+                    </p>
+                </div>
+                <!--End of First Section-->
+
+                <!--Second Section-->
+                <div class = "RunningThreads">
+
+                    <h1 class = "bodyheading">Starting And Running A Thread In Java</h1>
+
+                    <p class = "bodyPar">Java provides built in support for multithreading. Multithreading is when two or more threads are executed at the same time. 
+                    <br>
+                        It can become complex when multiple threads need to access the same resources. Multiple threads modifying a single shared resource can lead to unpredictable behaviour. 
+                        Multiple threads are still necessary for things like running the User Interface(UI) while simultaneously monitoring message queues.
+                        A Java Thread is a lightweight process.
+                    </p>   
+                    <p class = "bodyPar">To Create a thread in java follow these steps:</p>
+
+                    <!--Code Section-->
+
+                    <p class = "bodyPar">
+                        <div class = "codeblock">
+                            <pre>
+                                <code> //Create a Worker class that extends Thread 
+                                        public class Worker extends Thread {
+                                    
+                                        @Override  //
+                                        public void run() { // Overridden the run() method
+                                            
+                                            // Loop for ten iterations.
+                                            for(int i=0; i&lt;10; i++) {
+                                                System.out.println("Running...");
+                                                
+                                                // Sleep for a while
+                                                try {
+                                                    Thread.sleep(200);
+                                                } catch (InterruptedException e) {
+                                                    // Interrupted exception will occur if the Worker object's interrupt() method
+                                                    // is called. interrupt() is inherited from the Thread class.
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    
+                                    }
+                                    
+                                </code> 
+                            </pre>
+                        </div>
+                    </p>
+                    <!--End of Code Section-->
+                    <p class = "bodyPar">
+                        If you use <code>sleep()</code>, you have to catch the InterruptedException. This is thrown if a thread is interrupted while its sleeping. To interrupt a thread, call its <code>interrupt()</code> method. 
+                        By calling break if the thread is interrupted, the execution of any surrounding loop will stop.
+                        When two Worker classes are created and their inherited <code>start()</code> methods are called, they both run at the same time, they run concurrently. 
+                    </p>
+                </div>
+                <!--End of Second Section-->
+
+                <!--Third Section-->
+                <div class = "thirdSection">
+
+                    <h1 class = "bodyheading">Different States Of A Thread</h1>
+                    <p class = "bodyPar">There are various states of a thread: <code>New</code>, <code>Runnable</code>, <code>Waiting</code> , <code>Blocked</code>, <code>Timed Waiting</code> and <code>Terminated</code>.
+                    <br>
+                    <code>New</code>:
+                        As soon as a new thread is created, it's in the <code>New</code> state. The thread is not alive yet.
+                    <br>
+                    <code>Runnable</code>:
+                        The thread is put into a running state as soon as <code>start()</code> is called.
+                    <br>
+                    <code>Waiting</code> :
+                        A running thread can be suspended to temporarily stop its activity. 
+                        It will pick up where it left off and return to the <code>Runnable</code> state when it is allowed to resume. 
+                    <br>
+                    <code>Blocked</code>:
+                        A thread can get <code>Blocked</code> when it tries to access code that is currently locked by another thread. 
+                        The person scheduling the code is responsible for determining when threads run.
+                    <br>
+                    <code>Timed Waiting</code>:
+                        A <code>Runnable</code> thread can change to <code>Timed Waiting</code> if it is provided with an optional waiting time. 
+                        When it's waiting for another thread to perform a task, it will go into timed waiting and wait for the other thread to notify it when it's done or resume its task once the time has lapsed.
+                    <br>
+                    <code>Terminated</code>:
+                        A thread can be terminated in two ways. It exits normally after the program has completed its code execution, or when there are unhandled errors. 
+                        When terminated, execution is halted immediately and once a thread is terminated, it cannot be resumed. 
+                    </p>
+                </div>
+                <!--End of Third Section-->
+
+                <!--Fourth Section-->
+                <div class = "daemon">
+                    <h1 class = "bodyheading">Daemon Thread</h1>
+                    <p class = "bodyPar">Daemon thread in Java is a service provider thread that provides services to the user thread for background supporting tasks.
+                        The Daemon thread is dependent on the user threads. When all the user threads complete their execution, Java Virtual Machine (JVM) terminates itself.
+                        The JVM does not care whether Daemon threads are running or not and only waits for user threads to finish.
+                    </p>
+                    
+                    <p class = "bodyPar">Here is a list of when you may want to use a daemon thread:
+                    </p>
+
+                    <p>
+                    <div class = "list">
+                        <ul>
+                            <li>Collection of statistics and status monitoring task</li>
+                            <li>Performing asynchronous I/O tasks</li>
+                            <li>Listening for incoming connections</li>
+                            <li>Garbage collection</li>
+                            <li>Releasing memory of unused objects</li>
+                            <li>Removing unwanted entries from the cache</li>
+                        </ul>
+                    </div>
+                    </p>
+
+                    <p class = "bodyPar">To create a Daemon thread in Java follow these steps:
+                    </p>
+
+                    
+                    <div class = "codeblock">
+                        <pre>
+                            <code>
+                                package com.myjava.threads;
+                                
+                                public class DaemonThread extends Thread{
+                                    
+                                    //To specify that a thread is a daemon thread, 
+                                    //call the setDaemon method with the argument true.
+
+                                    public DaemonThread(){
+                                        setDaemon(true); 
+                                    }
+                                    public void run(){
+
+                                        //To determine if a thread is a daemon thread, 
+                                        //use the accessor method isDaemon
+
+                                        System.out.println("Is this thread Daemon? - "+isDaemon()); 
+                                    }
+                                    public static void main(String a[]){
+                                        DaemonThread dt = new DaemonThread();
+                                        // You can also set the Daemon Constraing here : dt.setDeamon(true)
+                                        dt.start();
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                
+                </div>
+                <!--End of Fourth Section-->
+
+                <!--Fifth Section-->
+                <div class ="jmm">
+                    <h1 class = "bodyheading">Java Memory Model (JMM)</h1>
+                    <p class = "bodyPar">The JMM stipulates how the Java virtual machine (JVM) works with the computer's memory (RAM).
+                        The JVM is a model of a whole computer, this model includes a memory model, as in: the Java Memory Model.
+                    <br>
+                        The JMM describes how threads in Java interact through memory. Including the description of single threaded execution of code, 
+                        the JMM provides the semantics of the Java Programming Language.
+                    </p>
+                </div>
+                <!--End of Fifth Section-->
+
+                <!--Fifth Section-->
+                <div class = "fifth">
+                    <h1 class = "bodyheading">Deadlock, Livelock and Starvation</h1>
+                    <p class = "bodyPar">
+                        Deadlock is when there are two or more threads that are blocked forever because they are waiting for each other to exit the task.
+                    <br>
+                    <br>
+                        Livelock is when two or more threads change their state continuously, and they clash with each other's state, they fail to progress because both of them are 
+                        changing state, they are too busy responding to each other to resume work.
+                    <br>
+                    <br>
+                        Starvation is when a thread cannot gain access to shared resources and is unable to make progress beacuse of this. 
+                        This happens when shared resources are unavailable for long periods of time due to another thread monopolizing the resource.
+                    </p>
+                </div>
+                <!--End of Fifth Section-->
+
+                <!--Sixth Section-->
+                <div class = "overriding">
+                    <h1 class = "bodyheading">Overriding Thread Class <code>run()</code> Method</h1>
+                    <p class = "bodyPar" >What happens if you don’t override the thread class <code>run()</code> method?
+                    <br>
+                        It is highly recommended to override <code>run()</code> method because it improves the performance of the system. 
+                        When we call the <code>start()</code> method on thread, it internally calls the <code>run()</code> method with a newly created thread. 
+                        So, if we don’t override the <code>run()</code> method, the newly created thread won’t be called and there will be no output.
+                    </p>
+                </div>
+                <!--End of Sixth Section-->
+
+                <!--Seventh Section-->
+                <div class = "atomic">
+                    <h1 class = "bodyheading">Atomic Operations And Atomic Classes</h1>
+                    <p class = "bodyPar">Atomic operations are performed in a single unit of task without interference from other operations, they run completely independently of any other processes.
+                        Atomic operations are a necessity in multi-threaded environments to avoid data inconsistency, and are used in many modern operating systems.
+                        <br>
+                        The java.util.concurrent.atomic package defines classes that support atomic operations on single variables. 
+                        All classes have get and set methods that work like reads and writes on volatile variables. A set has a happens-before relationship with any subsequent get on the same variable. 
+                        The atomic compareAndSet method also has these memory consistency features, as do the simple atomic arithmetic methods that apply to integer atomic variables. 
+
+                    </p>
+                </div>
+                 <!--End of Seventh Section-->
+
+                <!--Eighth Section-->
+                <div class = "Executor">
+                    <h1 class = "bodyheading">Executor And ExecutorService</h1>
+                    <p class = "bodyPar">Executor is the core interface which is an abstraction for parallel execution. It separates task from execution.
+                    <br>
+                        ExecutorService is an extension of Executor interface and provides a facility for returning a Future object and terminate, or shut down the thread pool. 
+                        Once the shutdown is called, the thread pool will not accept new tasks, but will complete any pending task.
+                    <br>
+                    <br>
+                        The differences between Executor and ExecutorService is that Executor is a parent interface while ExecutorService is a sub-interface of Executor and extends it.
+                        Executor uses the <code>execute()</code> method for submitting tasks, while the ExecutorService uses the <code>submit()</code> method. 
+                    <br>
+                        The <code>execute()</code> method accepts an object of the Runnable interface, while <code>submit()</code>  method can accept objects of both Runnable and Callable interfaces.
+                        The <code>execute()</code> method doesn't return any result, its return type is void but the <code>submit()</code>  method returns the result of a computation via a Future object. 
+                        This is also the key difference between <code>submit()</code> and <code>execute()</code> method, which is one of the frequently asked Java concurrency interview questions.
+                        With Executor, you cannot cancel the task once completed, whereas with ExecutorService, you can cancel the task by using <code>Future.cancel()</code>.
+                        Executor doesn't provide any method for shutdown, but ExecutorService provides methods for shutdown of the pool
+                    </p>
+                </div>
+                    <!--End of Eighth Section-->
+
+                <!--Nineth Section-->
+                <div class = "concurrent">
+                    <h1 class = "bodyheading">Concurrent Classes</h1>
+                    <p class = "bodyPar">The Concurrent Collection APIs, apart from the Java Collection API, are a set of collections APIs that are designed and optimized specifically for synchronized multithreaded access.
+                        They are grouped under the java.util.concurrent package.
+                    <br>
+                        The concurrent collection classes are highly scalable and low risk. The concurrent collection APIs of Java provide a range of classes that are specifically designed to deal with concurrent 
+                        operations. These classes are alternatives to the Java Collection Framework and provide similar functionality except with the additional support of concurrency.
+                    <br>
+                    <br>
+                        The classes in the new concurrent collection framework include: 
+                        <ul>
+                            <li>ArrayBlockingQueue</li>
+                            <li>ConcurrentLinkedDeque</li>
+                            <li>ConcurrentLinkedQueue</li>
+                            <li>ConcurrentSkipListMap</li>
+                            <li>CopyOnWriteArraySet</li>
+                            <li>LinkedBlockingDeque</li>
+                            <li>DelayQueue</li>
+                            <li>LinkedBlockingQueue</li>
+                            <li>SynchronousQueue</li>
+                            <li>LinkedTransferQueue</li>
+                            <li>PriorityBlockingQueue</li>
+
+                        </ul>
+                    </p>
+                </div>
+                <!--End of Nineth Section-->
+                <!--End Section-->
+                <div class = "endSection">
+                    <img class = "bottomImg" src = "banner-end.png" alt = "banner-img">
+                    
+                    <p class = "concl">This post was an assignment research project.
+                    <br>
+                        For more information on Concurrency in Java, visit the <a href = "https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html">JavaDocs</a> 
+                    </p>
+                </div>
+                <!--End of End Section-->
+            </div>
+            <!--End of Blog Body-->
+        </div>
+        <!--End of Blog-->
+
+
+         <!--Contact-Footer-->
+         <div id = "Contact" class="heading">CONTACT</div>
+         <div class = "footer">
+             
+             <!--Inner Footer-->
+             <div class = "inner_footer">
+                 <h1>ESTINE VAN DER BERG</h1>
+                 <h2>EMAIL: estine.cook@gmail.com</h2>
+             </div>
+             <!--End of Inner Footer-->
+
+             <!--Third Footer-->
+             <div class = "footer_third">
+                 <a href="https://www.linkedin.com/in/estinevdb/"><i class="fab fa-linkedin"></i></a> <!--Using images links from font awesome as links to websites-->
+                 <a href="https://github.com/c00ke"><i class="fab fa-github"></i></a>
+                 <a href="https://www.instagram.com/estinevdb/"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/channel/UCWOsdGYJ0A3nPphvIaNcC4g/about?view_as=subscriber"><i class="fab fa-youtube"></i></a>
+             </div>
+             <!--End of Third Footer-->
+         </div>
+         <!--End Contact-footer-->
+
+         <!--Copyright-->
+         <div class = "copyright">
+             <p>Copyright &copy; 2020, Estine van der Berg, All Rights Reserved</p>
+         </div>
+         <!--End of Copyright-->
+
+
+    </body>
+    </html>
