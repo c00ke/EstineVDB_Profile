@@ -32,6 +32,46 @@
     .nav > li > a:hover {
         color: #c1c1c1;
     }
+
+    .dropbtn {
+        background-color: #c1c1c1;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        border: none;
+        font-family: monospace;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        font-family: monospace;
+
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        font-family: monospace;
+        text-align: left;
+      }
+      
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        display: block;
+        font-family: monospace;
+      }
+      
+      .dropdown-content a:hover {background-color: #ddd;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color:#656565;}
     
     .logo {
         color:#474747;
@@ -226,7 +266,7 @@
     }
     
     .education {
-        width: 1200px;
+        width: 1300px;
         margin: 0 Auto;
         font-size: 13px;
         text-align: center;
@@ -266,7 +306,7 @@
         width: 500px;
         border: 3px solid #656565;
         margin: 20px 20px 20px 50px;
-        padding: 10px,10px;
+        padding: 10px 10px;
         display: inline-block;
         vertical-align: top;
         color: #656565;
@@ -277,14 +317,14 @@
         display: block;
         margin: 0 auto;
         width: 50%;
-        padding: 20px,20px;
+        padding: 20px 20px;
     }
     
     .fun > h1 {
         font-size: 20px;
         font-weight: bold;
         color: #656565;
-        padding: 10px,50px;
+        padding: 10px 50px;
         margin: 10px 10px 10px 10px;
     }
     
@@ -357,7 +397,6 @@
 
     .blog {
         text-align: center;
-        width: 0 Auto;
         padding-top: 3%;
         padding-bottom: 3%;
     }
@@ -443,12 +482,11 @@
     }
 
 
-    .daemon > .list {;
+    .daemon > .list {
         text-align: left;
 
     }
     .daemon > .list > ul {
-
         list-style:outside circle;
         margin-left:60px; 
 
@@ -516,3 +554,260 @@
         font-weight: bold;
         text-shadow: 1px 1px #b4b3b3;
     }
+
+    .blogInterface {
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    .blogInterface > .blog2heading > img {
+        width: 80%;
+        margin: 0 50px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .blogInterface > .blog2heading > h1 {
+        color: #0c394e;
+        text-shadow: 1px 1px #0c394e;
+        font-size: 45px;
+    }
+
+    .blogInterface > .interface {
+        background-color: #0c394e;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 3%;
+    }
+
+    .blogInterface > .interface > h1 {
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .blogInterface > .interface > p {
+        text-align: justify;
+        color: white;
+    }
+
+   .blogInterface > .whyinterface {
+        border: 4px solid #115270;
+        width: 80%;
+        text-align: justify;
+        padding: 3%;
+        margin-top: 30px;
+        margin-left:103px;
+    }
+
+    .blogInterface > .whyinterface > h1 {
+        color: #115270;
+        text-align: center;
+    }
+
+    .blogInterface > .whyinterface > p {
+        color: #04293a;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .blogInterface > .absVSint {
+        width: 80%;
+        text-align: justify;
+        margin-left:103px;
+        padding: 3%;
+    }
+
+    .blogInterface > .absVSint > h1 {
+        color: #04293a;
+        text-align: center;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .blogInterface > .absVSint > p {
+        color: #115270;
+    }
+
+    .blogInterface > .abstract {
+        border: 2px solid #115270;
+        width: 80%;
+        text-align: justify;
+        padding: 3%;
+        margin-left:103px;
+        background-color: #115270;
+    }
+
+    .blogInterface > .abstract > h1{
+        width:80%;
+        text-align: center;
+        margin: 0 auto;
+        color:  white;
+    }
+
+    .blogInterface > .abstract > p {
+        color:  white;
+        padding-top: 10px;
+    }
+
+    .blogInterface > .interfaceImplement {
+        width: 80%;
+        text-align: justify;
+        margin-left:103px;
+        padding: 3%;
+    }
+
+    .blogInterface > .interfaceImplement > h1 {
+        color: #04293a;
+        text-align: center;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .blogInterface > .interfaceImplement > p {
+        color: #115270;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+
+    .blogInterface > .abstractMethod {
+        border: 2px solid #115270;
+        width: 80%;
+        text-align: justify;
+        padding: 3%;
+        margin-left:103px;
+    }
+    .blogInterface > .abstractMethod > p {
+        color: #04293a;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .blogInterface > .abstractMethod > h1 {
+        color: #115270;
+        text-align: center;
+    }
+
+    
+    .blogInterface > .instantiate {
+        background-color: #0c394e;
+        border: 1px solid #0c394e;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 3%;
+        margin-top: 50px;
+
+    }
+
+    .blogInterface > .instantiate > h1 {
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .blogInterface > .instantiate > p {
+        text-align: justify;
+        color: white;
+    }
+
+    .blogInterface > .constructor {
+
+        width: 80%;
+        text-align: justify;
+        padding: 3%;
+        margin-left:103px;
+
+    }
+    .blogInterface > .constructor > p {
+        color: #04293a;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .blogInterface > .constructor > h1 {
+        color: #115270;
+        text-align: center;
+    }
+
+    .blogInterface > .constructor {
+
+        width: 80%;
+        text-align: justify;
+        padding: 3%;
+        margin-left:103px;
+
+    }
+    .blogInterface > .constructor > p {
+        color: #04293a;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .blogInterface > .constructor > h1 {
+        color: #115270;
+        width: 70%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .blogInterface > .override {
+        width: 85%;
+        text-align: justify;
+        margin-left:103px;
+
+    }
+    .blogInterface > .override > p {
+        color: #115270;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3%;
+        border: 3px solid #0c394e;
+        width: 95%;
+        
+
+    }
+
+    .blogInterface > .override > h1 {
+        color: #0c394e;
+        width: 70%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .blogInterface > .endSection2 > .ending > a {
+        color: white;
+    }
+
+    .endSection2 {
+        position: relative;
+        width: 100%;
+        display: block;
+
+    }
+    .endSection2  > .ending > a:hover {
+        color: #0c394e;
+    }
+
+    .endSection2  > .bottomImg {
+        padding-top: 3%;
+        display:block;
+        width: 86%;
+        margin: 0 auto;
+
+    }
+
+    .endSection2 > .ending {
+        font-family: monospace;
+        position: absolute;
+        width: 100%;
+        top: 50%;   
+        right: -60%;
+        padding: 60px;
+        text-align: center;
+        background: transparent;
+        color: white;
+        font-size: 15px;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+    }
+

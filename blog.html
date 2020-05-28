@@ -22,7 +22,15 @@
                 <a href = "index.html" rel = "import">ESTINEVDB</a>
             </div>
             <!-- End Logo-->
-            <li><a href = "#blogHeader">LATEST ARTICLE</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn">ARTICLE LIST</button>
+                <div class="dropdown-content">
+                  <a href="#blogHeader">Concurrency in Java</a>
+                  <a href="#blogContainer">Inheritance in Java</a>
+                </div>
+              </div>
+              </li>
+            <li><a href = "#blogContainer">LATEST ARTICLE</a></li>
             <li><a href = "#Contact">CONTACT</a></li>
         </ul>
         <!--End Nav Bar-->
@@ -334,36 +342,195 @@
             </div>
             <!--End of Blog Body-->
         </div>
-        <!--End of Blog-->
+        <!--End of BlogConcurrency-->
+
+        <!--BlogInterface Start-->
+        <div id = "blogContainer" class = "blogInterface">
+            <img class = "banner" src = "interface.jpg" alt = "Banner_Image">
+
+            <!--Blog2 Header-->
+                <div  class = "blog2heading">
+                    <h1>JAVA INTERFACES</h1>
+                    <img src = "flowers.png" alt = "image">
+                </div>
+
+                <!--Blog2 Body-->
+                <!--Part one-->
+                <div class = "interface">
+                    <h1>What is an interface in Java?</h1>
+                    <p>
+                        An Interface is a datatype and it is similar to a class. However, unlike classes, it can only contain constants, method signatures, default methods, static methods, and nested types.
+                        Interfaces cannot be instantiated—they can only be implemented by classes or extended by other interfaces. When a class implements an interface, it implements all the methods defined in 
+                        the interface with the exact signature and return type. A class can also implement more than one interface.
+                    <br>
+                        Implementing an interface allows a class to become more formal about the behavior it promises to provide. 
+                        It's a description of duties that a class is obliged to do.
+                        Interfaces form a contract between the class and the outside world, and this contract is enforced at build time by the compiler. 
+                        If your class claims to implement an interface, all methods defined by that interface must appear in its source code before the class will successfully compile.
+                    <br>
+                    </p>
+                </div>
+                <!--End Part one-->
+
+                <!--Part Two-->
+                <div class = "whyinterface">
+                    <h1>Why do we use interface?</h1>
+                        <p>Interface are key of API design. In fact smaller interfaces like Comparable, Runnable, and Callable makes core of Java API.
+                            <br>
+                            Interface allows multiple inheritance in Java.
+                            <br>
+                            Interfaces are a way to declare a contract for implementing classes to fulfil; it's the primary tool to create abstraction 
+                            <br>
+                            Use of interface allows you to supply a new implementation, which could be more robust, which will allow more performance in later stages of your development.
+                            <br>
+                            A code written on interface is much more flexible than the one which is written on implementation.
+                            <br>
+                            It is important for disparate groups of programmers to agree to a "contract" that spells out how their software interacts. 
+                            <br>
+                            Each group should be able to write their code without any knowledge of how the other group's code is written.
+                    </p>
+                </div>      
+                <!--End Part Two-->     
+
+                <!--Part Three-->
+                <div class = "absVSint">
+                    <h1> What are the differences between an abstract class and an interface? </h1>
+                        <p>
+                            <br>
+                            An abstract class can have instance methods that implements a default behavior.
+                            <br>
+                            A Java class can implement multiple interfaces but it can extend only one abstract class. 
+                            <br>
+                            Interfaces are slow in comparison with java abstract classes, as interfaces requires extra indirection.
+                            <br>
+                            Variables declared in a Java interface is by default final. An  abstract class may contain non-final variables
+                            <br>
+                            One of the main differences is that the methods of an interface are completely abstract and cannot have implementations.
+                            <br>
+                            Members of a Java interface are public by default. A Java abstract class can have class members like private, protected, etc..
+                            <br>
+                            Interface is absolutely abstract and cannot be instantiated; A Java abstract class also cannot be instantiated, but can be invoked if a <code>main()</code> exists.
+                        </p>
+                </div>
+                <!--End Part Three--> 
+
+                <!--Part Four-->
+                <div class = "abstract">
+                    <h1>Why is abstraction an important concept in software development and what role do interfaces play in abstraction?</h1>
+                    <p>
+                        Abstraction is one of the key concepts of object-oriented programming (OOP) languages. It's the process of taking away or removing characteristics from something in order to reduce it to a set of essential characteristics 
+                        The programmer hides all but the relevant data about an object in order to reduce complexity and increase efficiency
+                        Abstraction is one of the key elements of good software design. It helps encapsulate behavior, decouple software elements and it helps having more self-contained modules amongst other things. It also helps programmers build more
+                        complex code. Abstraction makes the application easily extendable and it makes refactoring much easier.
+                    <br>
+                    <br>
+                        You can define an interface when you need to guide the programmer or make a contract specifying how the methods and fields of a type should be.
+                        You would need to implement this interface in order to create an abstract object, you also need to provide a body for all the abstract methods of the interface and obtain the object of the implementing class.
+                        The user who is using the interface methods, only knows the classes that implement this interface and their methods, information about the implementation is completely hidden from the user, thus achieving abstraction.
+                    </p>
+                </div>
+                <!--End Part Four-->
+
+                <!--Part Five-->
+                <div class = "interfaceImplement">
+                    <h1>What must a class do in order to implement an interface?</h1>
+                    <p>
+                    To declare a class that implements an interface, you include an implements clause in the class declaration.
+                    Your class can implement more than one interface, so the implements keyword is followed by a comma-separated list of the interfaces implemented by the class. 
+                    The implements clause follows the extends clause, if there is one.
+                    </p>
+                </div>
+                <!--End Part Five-->
+
+                <!--Part Six-->
+                <div class = "abstractMethod">
+                    <h1>What is an abstract method?</h1>
+                    <p>An abstract class is a class that is declared abstract—it may or may not include abstract methods. Abstract classes cannot be instantiated, but they can be subclassed.
+                    <br>
+                    An Abstract method is a method without a body, meaning there is no implementation. If a class has an abstract method, the class itself should be declared abstract as well.
+                    </p>
+                </div>
+                <!--End Part Six-->
+                
+                <!--Part Seven-->
+                <div class = "instantiate">
+                    <h1>Can you instantiate an interface?</h1>
+                    <p>
+                        Can you instantiate an interface in Java? 
+                        Not being able to instantiate something means that you cannot create the object of an interface.
+                        The answer is no.
+                    <br>
+                        It would defy the Object Oriented Model. There would be no purpose to instantiate is as 'nothing' will happen.
+                        Some of their methods might not have any definitions
+                    </p>
+                </div>
+                <!--End Part Seven-->
+                
+                <!--Part Eight-->
+                <div class = "constructor">
+                    <h1>Can you declare a constructor inside an interface?</h1>
+                        <p>
+                        Can you declare a constructor inside an interface?
+                        No, interface cannot have constructors.
+                        <br>
+                        There would be no point in having a constructor in an interface as interface cannot be instantiated. All the methods you define in an interface should be implemented by another class 
+                        (overridden). 
+                        But, you cannot override constructors in Java.
+                        </p>
+                </div>
+                <!--End Part Eight-->
+                
+                <!--Part Nine-->
+                <div class = "override">
+                    <h1>Can we override an interface method with visibility that is not public?</h1>
+                    <p>
+                    When you try and override an interface method with weaker access (private or default) then you will raise an compilation error.
+                    The methods of an interface must be public. If it is not specified, the default will be public. 
+                    Therefore when the subclass which implements the interface overrides, it can only use the same specifier or a stronger one. 
+                    No stronger specifier than public exists in Java. For this, reason, all the methods of interface must be overridden with public only.
+                    </p>
+                </div>
+                <!--End Part Nine-->
+                <!--End Section-->
+                <div class = "endSection2">
+                    <img class = "bottomImg" src = "banner-end2.1.png" alt = "banner-img">
+                    
+                    <p class = "ending">This post was an assignment research project.
+                    <br>
+                        For more information on Interfaces in Java, visit the <a href = "https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">JavaDocs</a> 
+                    </p>
+                </div>
+                <!--End of End Section-->
+            </div>
+            <!--End Blog Container-->
 
 
-         <!--Contact-Footer-->
-         <div id = "Contact" class="heading">CONTACT</div>
-         <div class = "footer">
+
+        <!--Contact-Footer-->
+        <div id = "Contact" class="heading">CONTACT</div>
+        <div class = "footer">
              
-             <!--Inner Footer-->
-             <div class = "inner_footer">
-                 <h1>ESTINE VAN DER BERG</h1>
-                 <h2>EMAIL: estine.cook@gmail.com</h2>
-             </div>
-             <!--End of Inner Footer-->
-
-             <!--Third Footer-->
-             <div class = "footer_third">
-                 <a href="https://www.linkedin.com/in/estinevdb/"><i class="fab fa-linkedin"></i></a> <!--Using images links from font awesome as links to websites-->
-                 <a href="https://github.com/c00ke"><i class="fab fa-github"></i></a>
-                 <a href="https://www.instagram.com/estinevdb/"><i class="fab fa-instagram"></i></a>
-                 <a href="https://www.youtube.com/channel/UCWOsdGYJ0A3nPphvIaNcC4g/about?view_as=subscriber"><i class="fab fa-youtube"></i></a>
-             </div>
-             <!--End of Third Footer-->
-         </div>
-         <!--End Contact-footer-->
-
-         <!--Copyright-->
-         <div class = "copyright">
-             <p>Copyright &copy; 2020, Estine van der Berg, All Rights Reserved</p>
-         </div>
-         <!--End of Copyright-->
+            <!--Inner Footer-->
+            <div class = "inner_footer">
+                <h1>ESTINE VAN DER BERG</h1>
+                <h2>EMAIL: estine.cook@gmail.com</h2>
+            </div>
+            <!--End of Inner Footer-->
+            <!--Third Footer-->
+            <div class = "footer_third">
+                <a href="https://www.linkedin.com/in/estinevdb/"><i class="fab fa-linkedin"></i></a> <!--Using images links from font awesome as links to websites-->
+                <a href="https://github.com/c00ke"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/estinevdb/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCWOsdGYJ0A3nPphvIaNcC4g/about?view_as=subscriber"><i class="fab fa-youtube"></i></a>
+            </div>
+            <!--End of Third Footer-->
+        </div>
+        <!--End Contact-footer-->
+        <!--Copyright-->
+        <div class = "copyright">
+            <p>Copyright &copy; 2020, Estine van der Berg, All Rights Reserved</p>
+        </div>
+        <!--End of Copyright-->
 
 
     </body>
