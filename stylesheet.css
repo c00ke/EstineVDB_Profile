@@ -264,6 +264,7 @@
         vertical-align: top;
         text-align: center;
     }
+
     
     .education {
         width: 1300px;
@@ -279,6 +280,7 @@
         padding: 10px 50px;
         margin: 10px 10px 10px 10px;
     }
+
     
     .education1 > h2 {
         font-size: 18px;
@@ -288,6 +290,16 @@
         margin: -10px -10px; 
         color: white;
     }
+
+    .education1> h2 > a {
+        text-decoration: none;
+        color: #c1c1c1;
+    }
+    .education1 > h2 > a:hover {
+        opacity: 0.2;
+        color:#c1c1c1;
+    }
+
     
     .Skills {
         text-align: center;
